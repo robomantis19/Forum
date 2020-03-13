@@ -40,6 +40,8 @@ const Global = createGlobalStyle`
 
 const Frame = styled('div')`
   position: relative;
+  z-index: 2;
+
   padding: 4px 0px 0px 0px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -59,6 +61,9 @@ const Content = styled(animated.div)`
   padding: 0px 0px 0px 14px;
   border-left: 1px dashed rgba(255, 255, 255, 0.4);
   overflow: hidden;
+
+
+
 `
 
 const toggle = {

@@ -1,32 +1,30 @@
 import React from 'react'; 
 import { NavLink } from 'react-router-dom';
-import { addPost } from '../actions/forumActions'
+import { addPost } from '../redux/actions'
 import { connect } from 'react-redux';
 
 
-
-const ForumList = (props) => { 
+const ForumList = ({Intro, forumCatch, addPost}) => { 
 
     return (
-        <div>
-            
-            <h2>{props.username}</h2>
-            {<NavLink to={`/forumList/${props.username}`}>Go to {props.username}s homepage</NavLink>}
-            <p>{props.message}</p>
+        <div style={{zIndex:'3'}}>
+            {console.log('props forumCatch', forumCatch.from_user)}
+            <h2>{forumCatch.from_user}</h2>
+            {<NavLink to={`/forumList/${forumCatch.from_user}`}>Go to {forumCatch.from_user}s homepage</NavLink>}
+            <p>{forumCatch.message}</p>
             
 
-            Welcome to the forum of {props.username}
+            Welcome to the forum of {forumCatch.from_user}
         </div>
     )
 }
-// const mapStateToProps = state => {
-//     return {
-//         Intro: state.Intro, 
-//         forumCatch: state.forumCatch
-//     }
-// }
-// export default connect(
-//     mapStateToProps, 
-//     { addPost }
-// )(ForumList);
-export default ForumList;
+const mapStateToProps = ({forumReducer}) => {
+    return {
+        Intro: forumReducer.Intro, 
+        forumCatch: forumReducer.forumCatch
+    }
+}
+export default connect(
+    mapStateToProps, 
+    { addPost }
+)(ForumList);

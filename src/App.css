@@ -9,18 +9,94 @@ a{
   width: 100px;
   align-items: center;
  
+
 }
 h2, p , label, h1{ 
   color: lime;
 }
 
 .IntroText{
+  width: 100%;
   display: flex;
   justify-content: center; 
   height: 2000px;
 }
-
+ 
 .script-box {
+  z-Index: 30;
   will-change: width, height, left, top;
-  position: relative;
+ 
+} 
+
+.carousel{
+  
+    animation: move 1s ease-in-out 0.5s 2 alternate;
+    -moz-animation: move 1s ease-in-out 0.5s 2 alternate;
+    -webkit-animation: move 1s ease-in-out 0.5s 2 alternate;
+
 }
+/* Animation from 0% to 100% */
+
+@keyframes move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100px); }
+}
+
+/* Animation with intermediate keyframes */
+
+@keyframes move {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+  100% { transform: translateX(100px); }
+}
+/* SLIDER STRUCTURE */
+
+.carousel {
+  background: #000;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  height: 320px;
+  width: 680px;
+  margin: 40px auto 0;
+  overflow: visible;
+  position: relative;
+
+  animation: move 1s ease-in-out 0.5s 2 alternate;
+  -moz-animation: move 1s ease-in-out 0.5s 2 alternate;
+  -webkit-animation: move 1s ease-in-out 0.5s 2 alternate;
+
+
+  animation: cycle 3s linear infinite;
+  /* animation: cycletwo 50s linear infinite; */
+}
+@keyframes cycle {
+  0%  { left: 0px; } /* When you start the slide, the first image is already visible */
+  4%  { left: -325px; } /* Original Position */
+  16% { left: -325px; opacity:1; z-index:0; } /* From 4% to 16 % = for 3 seconds the image is visible */
+  20% { left: -325px; opacity: 1; z-index: 0; } /* From 16% to 20% = for 1 second exit image */
+  21% { left: -325px; opacity: 1; z-index: 0; } /* Return to Original Position */
+  32% { left: -325px; opacity: 1; z-index: 0; }
+  46% { left: -325px; opacity: 1; } /* From 96% to 100% = for 1 second enter image*/
+  55%{ left: -325px; opacity: 1; }
+  65%{ left: -325px; opacity: 1; }
+  75%{ left: -325px; opacity: 1; }
+  85%{ left: -325px; opacity: 1; }
+  95%{ left: -325px; opacity: 1; }
+  100%{ left: -325px; opacity: 1; }
+ 
+}
+
+/* @keyframes cycletwo {
+  0%  { left: -325px; opacity: 1; } 
+  16% { left: -325px; opacity: 1; }
+  20% { left: -325px; opacity: 1; }
+  24% { left: -325px; opacity: 1; }  
+  36% { left: -325px; opacity: 1; z-index: 0; }   
+  40% { left: -325px; opacity: 1; z-index: 0; } 
+  41% { left: -325px; opacity: 1; z-index: 0; }   
+  50%{ left: -325px; opacity: 1; z-index: 0; }
+} */
+
+/* #mask {
+  overflow: hidden;
+  height: 680px;
+} */
