@@ -1,3 +1,4 @@
+
 import React, {memo, useState, useEffect} from 'react';
 import {
   NavLink, 
@@ -22,8 +23,6 @@ import PrivateRoute from './utils/privateRoute'
 import { axiosWithAuth } from './utils/axiosWithAuth'; 
 
 const Tree = memo(({ children, name, style, defaultOpen = false }) => {
-
-  
 
   const [isOpen, setOpen] = useState(defaultOpen)
   const previous = usePrevious(isOpen)
@@ -137,8 +136,7 @@ const mapStateToProps = ({forumReducer}) => {
       Intro: forumReducer.Intro, 
       forumCatch: forumReducer.forumCatch,
       clicked: forumReducer.clicked,
-      allMessages: forumReducer.allMessages
-      
+      allMessages: forumReducer.allMessages    
   }
 }
 export default connect(

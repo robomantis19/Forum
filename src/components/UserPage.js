@@ -108,6 +108,7 @@ const UserPage = (addPost, addProf,profileCatch, clickedPage, forumCatch, getAll
                                     </div>
                             )
                         }
+
             }): true} */}
                 {homeMessages ? homeMessages.map(item => { 
                     let user1 = item.from_user;
@@ -136,7 +137,6 @@ const mapStateToProps = ({forumReducer}) => {
         clicked: forumReducer.clicked,
         allMessages: forumReducer.allMessages,
         profileCatch: forumReducer.profileCatch
-       
     }
 }
 export default connect(
