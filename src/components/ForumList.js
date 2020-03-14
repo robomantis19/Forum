@@ -4,7 +4,6 @@ import { addPost } from '../redux/actions'
 import { connect } from 'react-redux';
 
 
-
 const ForumList = ({Intro, forumCatch, addPost}) => { 
 
     return (

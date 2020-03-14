@@ -86,6 +86,7 @@ const Home = (props) => {
             
             </div>
             <animated.div className = "script-box" style={prop2}>
+
             <div style={{zIndex: "50",position: `relative`, left: `400px`, top: `-500px`}}>
                 
                     
@@ -116,7 +117,6 @@ const Home = (props) => {
                     }) : null}
                 </div> : <h1  style = {{marginLeft: "-200px", zIndex: "50", textAlign:"center"}}>Welcome to the forum {localStorage.getItem('username')}</h1>}
             </div>
-            
             </animated.div>
             
             
