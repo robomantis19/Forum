@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 // import { ForumList } from './forumList';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-
+import '../App.css';
 const Forum = ({ addPost, clickedPage, forumCatch, getAllMessages, allMessages, Intro, clicked }) => { 
     const [addUser2, setAddUser2] = useState("");
     const [message1, setMessage] = useState("");
@@ -69,24 +69,29 @@ const Forum = ({ addPost, clickedPage, forumCatch, getAllMessages, allMessages, 
     return (
         <div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems:'center', position: 'relative', top:'-200px'}}>
-                <h2>This is a forum</h2>
-                <form style={{ zIndex:'2'}} onSubmit={handleSubmit}>
-                    <label>username here...</label>
+                <h2 className="TitleForum">This is a forum</h2>
+                <div className="flexForum">
+                
+                <form className="flexForm" style={{ zIndex:'2'}} onSubmit={handleSubmit}>
+                    <label className="LabelForum" >username here...</label>
                     <input
+                    className="input1"
                     type="text"
                     value={message1.from_user || message1.from_user == "" ? message1.from_user : localStorage.getItem('username')}
                     onChange={handleChange}
                     name="from_user"
                     />
-                    <label>type something...</label>
+                    <label className="LabelForum2">type something...</label>
                     <textarea
+                    className="textarea1"
                     type="text"
                     value={message1.message}
                     onChange={handleChange}
                     name="message"
                     />
-                    <button>Submit</button>
+                    <button className="submitButton">Submit</button>
                 </form>
+                </div>
                 <div style={{marginTop: '200px', height: '100%', display:'flex', flexDirection:"row", flexWrap: 'wrap', justifyContent:"space-around", alignItems:'space-between'}}>
                 {allMessages.length > 1 ? allMessages.map(item => { 
                     let user1 = item.from_user;
@@ -95,8 +100,8 @@ const Forum = ({ addPost, clickedPage, forumCatch, getAllMessages, allMessages, 
                         
                         <div key={item.id} style={{paddingLeft: '50px', paddingRight: '50px', border: '2px dotted lime', height: '500px', width: '500px'}}>
                         <h2 style={{width: '400px',height: '50px'}}>{item.from_user}</h2>
-                        <NavLink style={{width: '400px',height: '100px'}} to={`/forumList/${item.from_user}`} onClick={() => clickedPage2(item, item.user_id)}>Go to {item.from_user}'s homepage</NavLink>
-                        <p style={{width: '400px',height: '200px', border: '2px solid green'}} >Message: {item.message}</p>
+                        <NavLink className="whiteBackground3" style={{width: '400px',height: '100px'}} to={`/forumList/${item.from_user}`} onClick={() => clickedPage2(item, item.user_id)}>Go to {item.from_user}'s homepage</NavLink>
+                        <p style={{width: '400px',borderRadius: '1rem', padding: '2%', height: '200px', fontSize: '2rem', border: '2px solid green'}} >Message: {item.message}</p>
                         </div>
                     )
                 }) : null}

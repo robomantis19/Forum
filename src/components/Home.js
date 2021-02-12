@@ -85,10 +85,10 @@ const Home = (props) => {
             <animated.div  className="script-box" style={prop}/>
             
             </div>
-            <animated.div className = "script-box" style={prop2}>
+            {/* <animated.div className = "script-box" style={prop2}>
 
             <div style={{zIndex: "50",position: `relative`, left: `400px`, top: `-500px`}}>
-                
+                 */}
                     
                 {/* <h1  style = {{zIndex: "50", textAlign:"center"}}>Welcome to the forum {localStorage.getItem('username')}</h1> */}
                 {/* {props.forumCatch.map(item => { 
@@ -100,7 +100,7 @@ const Home = (props) => {
                     )
                     
                 })} */}
-                {localStorage.getItem('username') ? <div  style={{ marginLeft: '800px',marginTop: '350px', display: "flex"}}>
+                {/* {localStorage.getItem('username') ? <div  style={{ marginLeft: '800px',marginTop: '350px', display: "flex"}}>
                 {homeMessages ? homeMessages.map((item, index) => { 
                         let user1 = item.from_user;
                         // console.log('user', item.message);
@@ -117,7 +117,7 @@ const Home = (props) => {
                     }) : null}
                 </div> : <h1  style = {{marginLeft: "-200px", zIndex: "50", textAlign:"center"}}>Welcome to the forum {localStorage.getItem('username')}</h1>}
             </div>
-            </animated.div>
+            </animated.div> */}
             
             
         </div>

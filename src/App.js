@@ -75,11 +75,11 @@ function App(props) {
     <div style= {{disply: "flex"}}>
       <Global />
       <Tree name="main" defaultOpen>
-        <Tree name={<NavLink exact to="/">Home</NavLink>}/>
-        <Tree name={<NavLink to="/forum">Forum</NavLink>}/>
-        <Tree name={<NavLink to={`/forumList/${localStorage.getItem('username')}`}>Profile</NavLink>}/>
-        <Tree name={<NavLink to="/register">Register</NavLink>}/>
-        <Tree name="Trending Users">
+        <Tree  name={<NavLink className="whiteBackground" exact to="/">Home</NavLink>}/>
+        <Tree  name={<NavLink className="whiteBackground" to="/forum">Forum</NavLink>}/>
+        <Tree  name={<NavLink className="whiteBackground" to={`/forumList/${localStorage.getItem('username')}`}>Profile</NavLink>}/>
+        <Tree  name={<NavLink className="whiteBackground" to="/register">Register</NavLink>}/>
+        <Tree  name="Trending Users">
           <Tree name="hello" />
           {data.length > 0 ? data.filter((v,i,a) => a.findIndex(t=>(t.from_user === v.from_user))===i).map((input, index) => { 
 
@@ -90,14 +90,14 @@ function App(props) {
                             return (
           <Tree name={<h2 key={index}>{input.from_user}</h2>}>
           
-            <Tree name={<p>{<NavLink to={`/forumList/${input.from_user}`}onClick={() => props.clickedPage(input.from_user)}>User Hompage</NavLink>}</p>} style={{ color: '#37ceff' }} />
+            <Tree name={<p>{<NavLink className="whiteBackground2" to={`/forumList/${input.from_user}`}onClick={() => props.clickedPage(input.from_user)}>User Hompage</NavLink>}</p>} style={{ color: '#37ceff' }} />
             {/* <Tree name={<h2>{input.username}</h2>}"child 2" style={{ color: '#37ceff' }} />
             <Tree name="child 3" style={{ color: '#37ceff' }} /> */}
             
             <Tree name="views">
               
               <div style={{ position: 'relative', width: '100%', height: 200, padding: 10 }}>
-                <div style={{ width: '100%', height: '100%', background: 'black', borderRadius: 5 }} >
+                <div style={{ width: '100%', height: '100%', background: 'white', borderRadius: 5 }} >
                   <p>Total Views: {input.views}</p>
                 </div>
               </div>

@@ -100,3 +100,70 @@ h2, p , label, h1{
   overflow: hidden;
   height: 680px;
 } */
+.whiteBackground {
+  background-color: white; 
+  border: 2px solid lime;
+}
+
+.whiteBackground2 {
+  background-color: white; 
+}
+
+.whiteBackground3 {
+  background-color: white; 
+  font-size: 2rem;
+}
+
+.TitleForum{
+  font-size: 3rem; 
+}
+
+.LabelForum{
+  width: 300px;
+  font-size: 2rem;
+  padding: 5%;
+}
+.LabelForum2{
+  font-size: 2rem;
+  padding: 5%;
+}
+.flexForum{
+  border: 4px solid lime; 
+  border-radius: 3rem;
+  padding: 5%;
+}
+.flexForm{
+  display: flex; 
+  flex-direction: column;
+  margin-top: 50px;
+  width: 400px;
+}
+
+.input1{
+  width: 275px; 
+  height: 50px;
+  border-radius: .5rem;
+  padding: 10px;
+  font-size: 1.5rem;
+  color: darkgreen;
+}
+
+.textarea1{
+  width: 375px; 
+  height: 350px;
+  border-radius: .5rem;
+  padding: 10px;
+  font-size: 1.5rem;
+  color: darkgreen;
+  margin-bottom: 25px;
+}
+
+.submitButton{
+  width: 275px; 
+  background-color: palegreen;
+  color: white; 
+  height: 50px;
+  border: none;
+  font-size: 2rem;
+  font-weight: bold; 
+}

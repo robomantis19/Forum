@@ -118,7 +118,7 @@ const UserPage = (addPost, addProf,profileCatch, clickedPage, forumCatch, getAll
                             
                             <div key={item.id} style={{paddingLeft: '50px', paddingRight: '50px', border: '2px dotted lime', height: '500px', width: '500px'}}>
                             <h2 style={{width: '400px',height: '50px'}}>{item.from_user}</h2>
-                            <NavLink style={{width: '400px',height: '100px'}} to={`/forumList/${item.from_user}`} onClick={() => clickedPage2(item, item.user_id)}>Go to {item.from_user}'s homepage</NavLink>
+                            <NavLink className="whiteBackground3" style={{width: '400px',height: '100px'}} to={`/forumList/${item.from_user}`} onClick={() => clickedPage2(item, item.user_id)}>Go to {item.from_user}'s homepage</NavLink>
                             <p style={{width: '400px',height: '200px', border: '2px solid green'}} >Message: {item.message}</p>
                             </div>
                         )
