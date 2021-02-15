@@ -1,6 +1,7 @@
 import React from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth.js";
 
+import registerIntro from '../images/Forum.png';
 // styling imports
 import "./_Register.scss";
 
@@ -87,11 +88,11 @@ class Register extends React.Component {
     return (
       <div className="container">
         <div className="boxLeft">
-          {/* <img className="logo" src={GroaWhite} alt="groa logo" /> */}
+          <img className="logo" src={registerIntro} alt="groa logo" />
         </div>
         <div className="boxRight">
           <form className="form" onSubmit={this.handleSubmit}>
-            <h2>Register</h2>
+            <h1 style={{color: 'white'}}>Register</h1>
             {/* divs with changing classnames updates error handling for form */}
             <div
               className={

@@ -4,7 +4,7 @@ import { addPost, clickedPage, getAllMessages, addProf } from '../redux/actions'
 import Moment from 'react-moment';
 import { useHistory, NavLink } from 'react-router-dom'; 
 import {axiosWithAuth} from '../utils/axiosWithAuth';
-
+import '../App.css'
 
 const UserPage = (addPost, addProf,profileCatch, clickedPage, forumCatch, getAllMessages, allMessages, Intro, clicked ) => { 
     const start = Date.now();
@@ -15,18 +15,7 @@ const UserPage = (addPost, addProf,profileCatch, clickedPage, forumCatch, getAll
     const [toggle, setToggle] = useState(false); 
     const history = useHistory();
 
-    useEffect(() => { 
-        axiosWithAuth().get('/messages')
-        .then(res => { 
-            // console.log('useEffect get /messages', res);
-            setHomeMessages(res.data)
-            // getAllMessages(res.data);
-        })
-        .catch(err => { 
-            console.log('get api/users/messages err', err); 
-        })
-        // console.log('forumCatch:', forumCatch)
-    },[toggle])
+    
 
 
     const handleChange = (e) => { 
@@ -54,6 +43,7 @@ const UserPage = (addPost, addProf,profileCatch, clickedPage, forumCatch, getAll
         //     user_id: Number(localStorage.getItem('userId')),
         //     views: 0
         // });
+        
         axiosWithAuth().post(`/${inputPost.user_id}/messages`, {from_user: inputPost.from_user, message: inputPost.message, starRating: inputPost.starRating, user_id: inputPost.user_id, views: inputPost.views})
         setMessage("");
         setToggle(!toggle)
@@ -71,31 +61,50 @@ const UserPage = (addPost, addProf,profileCatch, clickedPage, forumCatch, getAll
         console.log('clickedPage', from_user);
         
     }
+
+    useEffect(() => { 
+        axiosWithAuth().get('/messages')
+        .then(res => { 
+            // console.log('useEffect get /messages', res);
+            
+            setHomeMessages(res.data)
+            // getAllMessages(res.data);
+        })
+        .catch(err => { 
+            console.log('get api/users/messages err', err); 
+        })
+        // console.log('forumCatch:', forumCatch)
+    },[toggle, handleSubmit])
     
     return (
 
         <div style={{marginTop: `-200px`}}>
+            
+            <div className = 'flexForum'>
             <h1>
                Welcome to User Page of {history.location.pathname.slice(11)}
             </h1>
             <h2>This is a forum</h2>
-                <form style={{ marginTop: '200px',  zIndex:'20'}} onSubmit={handleSubmit}>
-                    <label>username here...</label>
+                <form className= 'flexForm' style={{ marginTop: '200px',  zIndex:'20'}} onSubmit={handleSubmit}>
+                    <label className="labelForum">type a message...</label>
                     <input
                     type="text"
+                    className= "userPageInput"
                     value={message1.from_user === localStorage.getItem('username') || message1.from_user == "" ? message1.from_user : localStorage.getItem('username')}
                     onChange={handleChange}
                     name="from_user"
                     />
-                    <label>type something...</label>
+                    <label className="labelForum2">use @username to include other users!</label>
                     <textarea
+                    className = "textarea1"
                     type="text"
-                    value={message1.message}
+                    value={message1.message || ""}
                     onChange={handleChange}
                     name="message"
                     />
-                    <button>Submit</button>
+                    <button className = "submitButton">Submit</button>
                 </form>
+            </div>
             <h2>List of all user posts</h2>
            
             {/* {homeMessages ? homeMessages.map(input => { 
@@ -110,7 +119,7 @@ const UserPage = (addPost, addProf,profileCatch, clickedPage, forumCatch, getAll
                         }
 
             }): true} */}
-                {homeMessages ? homeMessages.map(item => { 
+                {homeMessages.length > 1 ? homeMessages.map(item => { 
                     let user1 = item.from_user;
                     // console.log('user', item.message);
                     if(item.from_user === clicked || item.from_user === history.location.pathname.slice(11) ||  (item.message && item.message.includes(`@${history.location.pathname.slice(11)}`))){

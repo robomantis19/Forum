@@ -55,8 +55,8 @@ const Home = (props) => {
             while (count <= 3 && count > 1) {
             
                 if( count === 2) {
-                await next({ top: '10%',  left: '-20%', width: '50%', height: '50%', background: 'transparent'}) 
-                await next({ top: '-5%', left: '-20%', width: '50%', height: '10%', background: 'transparent'})
+                await next({ top: '-10%',  left: '-10%', width: '150%', height: '-50%', background: 'transparent'}) 
+                await next({ top: '-5%', left: '30%', width: '60%', height: '10%', background: 'transparent'})
 
                 }
                 setCount(count+1)
@@ -80,7 +80,7 @@ const Home = (props) => {
 
     return (
         <div style={{marginTop: `-300px`}}>
-            {localStorage.getItem('username') ? <h1  style = {{zIndex: "50", textAlign:"center"}}>Welcome to the forum {localStorage.getItem('username')}</h1> : false}
+            {localStorage.getItem('username') ? <h1  style = {{zIndex: "50", textAlign:"center"}}>Welcome to the forum {localStorage.getItem('username')}</h1> : <animated.div  className="script-box2" style={prop2}><h1  style = {{zIndex: "50", textAlign:"center"}}>Forumbusters{localStorage.getItem('username')}</h1></animated.div>}
             <div style={{width: `900px`, height: `600px`}}>
             <animated.div  className="script-box" style={prop}/>
             

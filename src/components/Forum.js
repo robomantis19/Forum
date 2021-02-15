@@ -73,7 +73,7 @@ const Forum = ({ addPost, clickedPage, forumCatch, getAllMessages, allMessages, 
                 <div className="flexForum">
                 
                 <form className="flexForm" style={{ zIndex:'2'}} onSubmit={handleSubmit}>
-                    <label className="LabelForum" >username here...</label>
+                    <label className="LabelForum" >type message everyone can see, can use @username</label>
                     <input
                     className="input1"
                     type="text"
@@ -85,7 +85,7 @@ const Forum = ({ addPost, clickedPage, forumCatch, getAllMessages, allMessages, 
                     <textarea
                     className="textarea1"
                     type="text"
-                    value={message1.message}
+                    value={message1.message || ""}
                     onChange={handleChange}
                     name="message"
                     />

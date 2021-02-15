@@ -28,6 +28,12 @@ h2, p , label, h1{
  
 } 
 
+.script-box2 {
+  z-Index: 1;
+  will-change: width, height, left, top;
+ 
+} 
+
 .carousel{
   
     animation: move 1s ease-in-out 0.5s 2 alternate;
@@ -146,8 +152,11 @@ h2, p , label, h1{
   padding: 10px;
   font-size: 1.5rem;
   color: darkgreen;
+  display: none;
 }
-
+.userPageInput{
+  display: none;
+}
 .textarea1{
   width: 375px; 
   height: 350px;

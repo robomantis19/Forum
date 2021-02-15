@@ -77,7 +77,7 @@ function App(props) {
       <Tree name="main" defaultOpen>
         <Tree  name={<NavLink className="whiteBackground" exact to="/">Home</NavLink>}/>
         <Tree  name={<NavLink className="whiteBackground" to="/forum">Forum</NavLink>}/>
-        <Tree  name={<NavLink className="whiteBackground" to={`/forumList/${localStorage.getItem('username')}`}>Profile</NavLink>}/>
+        <Tree  name={<NavLink className="whiteBackground" to={`/forumList/${localStorage.getItem('username') ? localStorage.getItem('username') : null}`}>Profile</NavLink>}/>
         <Tree  name={<NavLink className="whiteBackground" to="/register">Register</NavLink>}/>
         <Tree  name="Trending Users">
           <Tree name="hello" />
